@@ -6,8 +6,8 @@ import java.util.Deque;
 public class Joc {
 
     Jugador[] llistaJugadors;
-    private Deque<Ficha> fitxesTauler = new ArrayDeque<Ficha>(28);
-    private Ficha[] fitxesRepartir = new Ficha[28];
+    private Deque<Ficha> fichasTablero = new ArrayDeque<Ficha>(28);
+    private Ficha[] repartirFicha = new Ficha[28];
 
     static int passades = 0;
     private int torn;
@@ -31,7 +31,7 @@ public class Joc {
         int pos = 0;
         for (int i = 0; i < 7; i++) {
             for (int j = i; j < 7; j++) {
-                fitxesRepartir[pos] = new Fitxa(i, j);
+                repartirFicha[pos] = new Ficha(i, j);
                 pos++;
             }
         }
@@ -47,18 +47,18 @@ public class Joc {
             System.out.println(numFitxa);
 
             if (escollides[numFitxa] == false) {
-                System.out.println(fitxesRepartir[numFitxa].getNum1() + " | " + fitxesRepartir[numFitxa].getNum2());
+                System.out.println(repartirFicha[numFitxa].getNum1() + " | " + repartirFicha[numFitxa].getNum2());
                 escollides[numFitxa] = true;
                 repartides++;
 
                 if (repartides <= 7) {
-                    llistaJugadors[0].fitxesJugador.add(fitxesRepartir[numFitxa]);
+                    llistaJugadors[0].fitxesJugador.add(repartirFicha[numFitxa]);
                 } else if (repartides > 7 && repartides <= 14) {
-                    llistaJugadors[1].fitxesJugador.add(fitxesRepartir[numFitxa]);
+                    llistaJugadors[1].fitxesJugador.add(repartirFicha[numFitxa]);
                 } else if (repartides > 14 && repartides <= 21) {
-                    llistaJugadors[2].fitxesJugador.add(fitxesRepartir[numFitxa]);
+                    llistaJugadors[2].fitxesJugador.add(repartirFicha[numFitxa]);
                 } else {
-                    llistaJugadors[3].fitxesJugador.add(fitxesRepartir[numFitxa]);
+                    llistaJugadors[3].fitxesJugador.add(repartirFicha[numFitxa]);
                 }
 
             }
@@ -80,7 +80,7 @@ public class Joc {
                 }
             }
         }
-        fitxesTauler.addFirst(llistaJugadors[primer].getFitxesJugador().get(fitxa));
+        fichasTablero.addFirst(llistaJugadors[primer].getFitxesJugador().get(fitxa));
         llistaJugadors[primer].getFitxesJugador().remove(fitxa);
         return (primer+1);
     }
