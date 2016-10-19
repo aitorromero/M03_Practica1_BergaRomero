@@ -25,7 +25,7 @@ public class Ficha {
         this.num2 = num2;
     }
     
-    public void canviOrientacio(Ficha ficha){
+    public void cambioOrientacion(Ficha ficha){
         int aux=ficha.getNum1();
         ficha.setNum1(ficha.getNum2());
         ficha.setNum2(aux);
@@ -35,6 +35,7 @@ public class Ficha {
     public String toString() {
         return "{" + num1 + " | " + num2 + '}';
     }
+    
     
 }
 
