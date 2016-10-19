@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Jugador {
     private String nom;
-    private ArrayList<Ficha> fichas;
+    ArrayList<Ficha> fichas;
     
     public Jugador (String nom){
         this.nom = nom;

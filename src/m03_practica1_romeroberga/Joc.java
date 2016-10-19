@@ -5,29 +5,29 @@ import java.util.Deque;
 
 public class Joc {
 
-    Jugador[] llistaJugadors;
+    Jugador[] listaJugadores;
     private Deque<Ficha> fichasTablero = new ArrayDeque<Ficha>(28);
     private Ficha[] repartirFicha = new Ficha[28];
 
-    static int passades = 0;
-    private int torn;
+    static int passadas = 0;
+    private int turno;
 
-    private boolean finalitzar = false;
+    private boolean finalizar = false;
 
-    public Jugador[] getLlistaJugadors() {
-        return llistaJugadors;
+    public Jugador[] getListaJugadores() {
+        return listaJugadores;
     }
 
-    public void crearJugadors() {
-        llistaJugadors = new Jugador[4];
-        llistaJugadors[0] = new Jugador("Jungla");
-        llistaJugadors[1] = new Jugador("Top");
-        llistaJugadors[2] = new Jugador("Mid");
-        llistaJugadors[3] = new Jugador("Adc");
+    public void crearJugadores() {
+        listaJugadores = new Jugador[4];
+        listaJugadores[0] = new Jugador("Jungla");
+        listaJugadores[1] = new Jugador("Top");
+        listaJugadores[2] = new Jugador("Mid");
+        listaJugadores[3] = new Jugador("Adc");
 
     }
 
-    public void crearFitxes() {
+    public void crearFichas() {
         int pos = 0;
         for (int i = 0; i < 7; i++) {
             for (int j = i; j < 7; j++) {
@@ -37,28 +37,28 @@ public class Joc {
         }
     }
 
-    public void repartirFitxes() {
+    public void repartirFichas() {
 
-        boolean[] escollides = new boolean[28];
-        int repartides = 0;
+        boolean[] escogidas = new boolean[28];
+        int repartidas = 0;
 
-        while (repartides <= 27) {
-            int numFitxa = (int) (Math.random() * 28);
-            System.out.println(numFitxa);
+        while (repartidas <= 27) {
+            int numFicha = (int) (Math.random() * 28);
+            System.out.println(numFicha);
 
-            if (escollides[numFitxa] == false) {
-                System.out.println(repartirFicha[numFitxa].getNum1() + " | " + repartirFicha[numFitxa].getNum2());
-                escollides[numFitxa] = true;
-                repartides++;
+            if (escogidas[numFicha] == false) {
+                System.out.println(repartirFicha[numFicha].getNum1() + " | " + repartirFicha[numFicha].getNum2());
+                escogidas[numFicha] = true;
+                repartidas++;
 
-                if (repartides <= 7) {
-                    llistaJugadors[0].fitxesJugador.add(repartirFicha[numFitxa]);
-                } else if (repartides > 7 && repartides <= 14) {
-                    llistaJugadors[1].fitxesJugador.add(repartirFicha[numFitxa]);
-                } else if (repartides > 14 && repartides <= 21) {
-                    llistaJugadors[2].fitxesJugador.add(repartirFicha[numFitxa]);
+                if (repartidas <= 7) {
+                    listaJugadores[0].fichas.add(repartirFicha[numFicha]);
+                } else if (repartidas > 7 && repartidas <= 14) {
+                    listaJugadores[1].fichas.add(repartirFicha[numFicha]);
+                } else if (repartidas > 14 && repartidas <= 21) {
+                    listaJugadores[2].fichas.add(repartirFicha[numFicha]);
                 } else {
-                    llistaJugadors[3].fitxesJugador.add(repartirFicha[numFitxa]);
+                    listaJugadores[3].fichas.add(repartirFicha[numFicha]);
                 }
 
             }
@@ -71,8 +71,8 @@ public class Joc {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 7; j++) {
-                if (llistaJugadors[i].getFitxesJugador().get(j).getNum1() == 6
-                        && llistaJugadors[i].getFitxesJugador().get(j).getNum2() == 6) {
+                if (listaJugadores[i].getFichas().get(j).getNum1() == 6
+                        && listaJugadores[i].getFichas().get(j).getNum2() == 6) {
                     primer = i;
                     fitxa = j;
                     System.out.println("primer = "+primer+" fitxa = "+ fitxa);
@@ -80,8 +80,8 @@ public class Joc {
                 }
             }
         }
-        fichasTablero.addFirst(llistaJugadors[primer].getFitxesJugador().get(fitxa));
-        llistaJugadors[primer].getFitxesJugador().remove(fitxa);
+        fichasTablero.addFirst(listaJugadores[primer].getFichas().get(fitxa));
+        listaJugadores[primer].getFichas().remove(fitxa);
         return (primer+1);
     }
     
