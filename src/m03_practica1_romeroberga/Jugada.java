@@ -44,8 +44,10 @@ public class Jugada {
      * en el que esta en su mano para saber que ficha tiene que cambiar. 
      * 
      * 
-     * EL SWITCH 2 LO EXPLICA AITORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR lo pongo largo para que lo vea y no se le olvide
-     * 
+     * En este caso el jugador ha seleccionado que quiere colocar una ficha,
+     * preguntamos que ficha quiere introducir y en que posicion. Despues 
+     * verificamos que se puede colocar la ficha y eliminamos esta de la mano del jugador
+     * (es decir, de sus fichas disponibles). 
      * 
      * El tercer caso lo que hace es sumar uno a una variable estática que esta 
      * en juego, esto lo que hace es esperar a que llegue a cautro en el main
@@ -58,6 +60,8 @@ public class Jugada {
             boolean girada = true;
             
             while(girada){
+                
+            joc.mostrarTablero();
             
             System.out.println("¿Que quieres hacer ?\n"
                     + "1. Cambiar orientacion de una ficha\n"
@@ -100,7 +104,6 @@ public class Jugada {
                         
                 }
                 
-                /*Mostrar tablero*/
         }
     }
 

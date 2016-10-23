@@ -1,6 +1,7 @@
 package m03_practica1_romeroberga;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
 
 public class Joc {
@@ -88,6 +89,14 @@ public class Joc {
         }
     }
     
+    public void mostrarTablero(){
+        ArrayList<Ficha> tablero=new ArrayList();
+        for (int i = 0; i < fichasTablero; i++) {
+             tablero[i] = fichasTablero.pollFirst();
+        }
+        
+    }
+    
     /**
      * Este método busca entre las cuatro manos de los jugadores quien tiene el
      * doble 6 y se la decarta de la mano para ponersela en el tablero
@@ -146,7 +155,15 @@ public class Joc {
             
         }
     }
-    
+    /**
+     * En este metodo recibimos por parametro el objeto ficha que el jugador quiere
+     * introducir en el tablero y comprobamos que se pueda colocar tanto en 
+     * la derecha como en la izquierda. Si no es asi mostramos un mensaje 
+     * para que el jugador entienda que no puede colocar su ficha en esa posicion.
+     * @param fichaAColocar
+     * @param derechaOIzquierda
+     * @return 
+     */
     public boolean colocarFicha(int fichaAColocar, int derechaOIzquierda){
         boolean boolColocarFicha=false;
         Ficha comparar = fichasTablero.getFirst();
