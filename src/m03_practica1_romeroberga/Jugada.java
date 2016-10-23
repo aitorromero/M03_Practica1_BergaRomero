@@ -61,7 +61,7 @@ public class Jugada {
             
             while(girada){
                 
-            joc.mostrarTablero();
+            System.out.println(joc.fichasTablero.toString());
             
             System.out.println("¿Que quieres hacer ?\n"
                     + "1. Cambiar orientacion de una ficha\n"

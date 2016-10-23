@@ -7,7 +7,7 @@ import java.util.Deque;
 public class Joc {
 
     Jugador[] listaJugadores;
-    private Deque<Ficha> fichasTablero = new ArrayDeque<Ficha>(28);
+    public Deque<Ficha> fichasTablero = new ArrayDeque<Ficha>(28);
     private Ficha[] repartirFicha = new Ficha[28];
     static int empate = 0;
     static int actual = 0;
@@ -89,13 +89,7 @@ public class Joc {
         }
     }
     
-    public void mostrarTablero(){
-        ArrayList<Ficha> tablero=new ArrayList();
-        for (int i = 0; i < fichasTablero; i++) {
-             tablero[i] = fichasTablero.pollFirst();
-        }
-        
-    }
+
     
     /**
      * Este método busca entre las cuatro manos de los jugadores quien tiene el
