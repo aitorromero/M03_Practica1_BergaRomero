@@ -8,7 +8,7 @@ public class Joc {
     Jugador[] listaJugadores;
     private Deque<Ficha> fichasTablero = new ArrayDeque<Ficha>(28);
     private Ficha[] repartirFicha = new Ficha[28];
-
+    static int empate = 0;
     static int actual = 0;
     private boolean finalizar = false;
     private boolean turnouno = true;
@@ -148,17 +148,19 @@ public class Joc {
         }
     }
     
-//    Ficha volteoFicha(int posicion){
-//        
-//    
-//                
-//    
-////        int aux;
-////        aux = listaJugadores[actual].mano.get(posicion-1).getNum1();
-////        listaJugadores[actual].mano.get(posicion-1).setNum1(listaJugadores[actual].mano.get(posicion-1).getNum2());
-////        listaJugadores[actual].mano.get(posicion-1).setNum2(aux);
-//        
-//    }
+    
+    /**
+     * Este método lo que hace es comprobar que jugador gana en caso que se
+     * cumpla el requisito de tener la mano vacía como se vea en if.
+     * 
+     * En caso negativo sigue la partida
+     */
+    public void comprobacionQuienGana(){
+        if(listaJugadores[actual].mano.isEmpty()){
+            System.out.println("El jugador " + listaJugadores[actual].getNom() + " ha ganado la partida.");
+            System.exit(0);
+        }
+    }
     
 }
 
