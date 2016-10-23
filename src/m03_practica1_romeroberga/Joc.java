@@ -120,7 +120,6 @@ public class Joc {
      * empieza y se muestra su mano para que pueda escojer que ficha saca
      */
     public void manoJugadorActual(){
-        
 
             for (int i = actual; i < 4; i++) {
                 if(i == 3){
@@ -131,10 +130,10 @@ public class Joc {
                 }
                 if(turnouno){
                     System.out.println("\n Turno de:" + listaJugadores[i].getNom());
-                for (int j = 0; j < listaJugadores[i].mano.size(); j++) {
-                    System.out.println(listaJugadores[i].mano.get(j));
-                    turnouno=false;
-                }
+                    for (int j = 0; j < listaJugadores[i].mano.size(); j++) {
+                        System.out.println(listaJugadores[i].mano.get(j));
+                        turnouno=false;
+                    }
                 }else{
                     for (int j = 0; j < listaJugadores[i].mano.size(); j++) {
                     System.out.println(listaJugadores[i].mano.get(j));
@@ -146,6 +145,38 @@ public class Joc {
                 break;
             
         }
+    }
+    
+    public boolean colocarFicha(int fichaAColocar, int derechaOIzquierda){
+        boolean boolColocarFicha=false;
+        Ficha comparar = fichasTablero.getFirst();
+        if(derechaOIzquierda==1 || comparar.getNum2() == listaJugadores[actual].mano.get(fichaAColocar-1).getNum1()){
+            
+            if(comparar.getNum2() == listaJugadores[actual].mano.get(fichaAColocar-1).getNum1()){
+                
+                fichasTablero.addFirst(listaJugadores[actual].mano.get(fichaAColocar-1));
+                boolColocarFicha = true;
+                
+            }else{
+                
+                System.out.println("No se ha podido introducir la ficha, pueba a cambiar su orientacion o pasar turno.");
+                
+            }
+        }else if(derechaOIzquierda==2 || comparar.getNum1() == listaJugadores[actual].mano.get(fichaAColocar-1).getNum2()){
+            
+            if(comparar.getNum1() == listaJugadores[actual].mano.get(fichaAColocar-1).getNum2()){
+                
+                fichasTablero.addLast(listaJugadores[actual].mano.get(fichaAColocar-1));
+                boolColocarFicha = true;
+                
+            }else{
+                
+                System.out.println("No se ha podido introducir la ficha, pueba a cambiar su orientacion o pasar turno.");
+                
+            }
+        }
+        
+        return boolColocarFicha;
     }
     
     
